@@ -10,7 +10,7 @@ enum Subject {
   business = "business",
 }
 
-type Companion = Models.DocumentList<Models.Document> & {
+export type Companion = Models.DocumentList<Models.Document> & {
   $id: string;
   name: string;
   subject: Subject;
@@ -47,7 +47,7 @@ interface CreateUser {
   accountId: string;
 }
 
-interface SearchParams {
+export interface SearchParams {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
