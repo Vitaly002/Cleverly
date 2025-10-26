@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠✨ Cleverly — AI-Powered Learning Buddy  
+**A seamless fusion of intelligence, design, and interactivity**
 
-## Getting Started
+> Personalized, real-time, voice-driven education.
+> Built for students, creators, and curious minds who believe learning should feel like a conversation.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Overview
+An innovative **AI learning platform** that blends **real-time voice interaction**, **personalized tutoring**, and **instant knowledge retrieval** - designed to make education feel more human, engaging, and dynamic.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app adapts to each learner’s pace, responding naturally through voice and text, while maintaining scalability and performance across devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Core Features
+- 🗣️ **Voice-Driven Learning** — natural speech interaction via AI  
+- ⚡ **Real-Time AI Responses** — powered by dynamic Supabase operations  
+- 🔐 **Secure Auth & Sessions** — managed with Clerk authentication  
+- 📊 **Scalable Architecture** — built on React, Next.js, and TypeScript  
+- 🧠 **Adaptive Intelligence** — context-aware recommendations and feedback  
+- 🎨 **Modern UI/UX** — designed with Tailwind CSS for responsiveness  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🖼️ Preview
+![AI Learning Companion Preview](./public/images/limit.svg)  
+*Smarter. Faster. More connected.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
+| Category | Tools |
+|-----------|-------|
+| **Language** | TS |
+| **Frameworks & Libraries** | Next.js, React |
+| **Database** | Supabase |
+| **Authentication** | Clerk |
+| **Styling** | Tailwind CSS |
+| **Deployment** | Vercel |
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
