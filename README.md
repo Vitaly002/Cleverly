@@ -1,4 +1,4 @@
-# 🧠✨ Cleverly — AI-Powered Learning Buddy  
+# 🧠✨ Cleverly - Learning Buddy  
 **A seamless fusion of intelligence, design, and interactivity**
 
 > Personalized, real-time, voice-driven education.
@@ -24,7 +24,7 @@ The app adapts to each learner’s pace, responding naturally through voice and 
 ---
 
 ## 🖼️ Preview
-![AI Learning Companion Preview](./public/images/limit.svg)  
+![AI Learning Companion Preview](./public/images/readme-limit.svg)  
 *Smarter. Faster. More connected.*
 
 ---
