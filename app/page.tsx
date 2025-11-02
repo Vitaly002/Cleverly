@@ -29,9 +29,9 @@ const Page = async () => {
 
       <section className="home-section grid gap-4 md:grid-cols-3">
         {companions.length > 0 ? (
-          companions.map((companion) => (
+          companions.map((companion, index) => (
             <CompanionCard
-              key={companion.$id}
+              key={`${companion.$id}-${index}`}
               {...companion}
               color={getSubjectColor(companion.subject)}
             />
