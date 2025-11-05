@@ -10,9 +10,9 @@ export const createCompanion = async (formData: CreateCompanion) => {
     const supabase = createSupabaseClient();
 
     const { data, error } = await supabase
-        .from('companions')
-        .insert({...formData, author })
-        .select();
+      .from('companions')
+      .insert({...formData, author })
+      .select();
 
     if(error || !data) throw new Error(error?.message || 'Failed to create a companion');
 
@@ -38,6 +38,7 @@ export const getAllCompanions = async ({
           bookmarks!left(user_id)
           `
         )
+        .eq("author", userId)
         .eq("bookmarks.user_id", userId);
   
       if (subject && topic) {
@@ -73,9 +74,9 @@ export const getCompanion = async (id: string) => {
     const supabase = createSupabaseClient();
 
     const { data, error } = await supabase
-        .from('companions')
-        .select()
-        .eq('id', id);
+      .from('companions')
+      .select()
+      .eq('id', id);
 
     if(error) return console.log(error);
 
@@ -86,10 +87,10 @@ export const addToSessionHistory = async (companionId: string) => {
     const { userId } = await auth();
     const supabase = createSupabaseClient();
     const { data, error } = await supabase.from('session_history')
-        .insert({
-            companion_id: companionId,
-            user_id: userId,
-        })
+      .insert({
+        companion_id: companionId,
+        user_id: userId,
+      })
 
     if(error) throw new Error(error.message);
 
@@ -103,19 +104,20 @@ export const getRecentSessions = async (limit = 10): Promise<Companion[]> => {
         const supabase = createSupabaseClient();
 
         const { data, error } = await supabase
-        .from("session_history")
-        .select(`companions:companion_id (*)`)
-        .order("created_at", { ascending: false })
-        .limit(limit);
+          .from("session_history")
+          .select(`companions:companion_id (*)`)
+          .eq("user_id", userId)
+          .order("created_at", { ascending: false })
+          .limit(limit);
 
         if (error || !data) {
-        console.error("Error fetching recent sessions:", error?.message || "Unknown error");
-        return [];
+          console.error("Error fetching recent sessions:", error?.message || "Unknown error");
+          return [];
         }
 
         const companions = data
-        .map((record) => record.companions)
-        .filter((c): c is Companion => Boolean(c));
+          .map((record) => record.companions)
+          .filter((c): c is Companion => Boolean(c));
 
         return companions;
     } catch (err) {
@@ -127,11 +129,11 @@ export const getRecentSessions = async (limit = 10): Promise<Companion[]> => {
 export const getUserSessions = async (userId: string, limit = 10) => {
     const supabase = createSupabaseClient();
     const { data, error } = await supabase
-        .from('session_history')
-        .select(`companions:companion_id (*)`)
-        .eq('user_id', userId)
-        .order('created_at', { ascending: false })
-        .limit(limit)
+      .from('session_history')
+      .select(`companions:companion_id (*)`)
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false })
+      .limit(limit)
 
     if(error) throw new Error(error.message);
 
@@ -141,9 +143,9 @@ export const getUserSessions = async (userId: string, limit = 10) => {
 export const getUserCompanions = async (userId: string) => {
     const supabase = createSupabaseClient();
     const { data, error } = await supabase
-        .from('companions')
-        .select()
-        .eq('author', userId)
+      .from('companions')
+      .select()
+      .eq('author', userId)
 
     if(error) throw new Error(error.message);
 
@@ -184,10 +186,12 @@ export const addBookmark = async (companionId: string, path: string) => {
   const { userId } = await auth();
   if (!userId) return;
   const supabase = createSupabaseClient();
-  const { data, error } = await supabase.from("bookmarks").insert({
-    companion_id: companionId,
-    user_id: userId,
-  });
+  const { data, error } = await supabase
+    .from("bookmarks")
+    .insert({
+      companion_id: companionId,
+      user_id: userId,
+    });
   if (error) {
     throw new Error(error.message);
   }
